@@ -1,0 +1,74 @@
+@model (string, List<List<NTR.Models.ScheduleModel>>)
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<p>
+    <a asp-action="Index">Go back</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Start time
+            </th>
+            <th>
+                End time
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Item2) {
+        <tr>
+            <td>
+                @(item[0].Date.ToString("dd-MM-yyyy"))
+            </td>
+            <td>
+                @(item[0].Date.TimeOfDay)
+            </td>
+            <td>
+                @(item[item.Count - 1].Date.TimeOfDay + TimeSpan.FromMinutes(15))
+            <td>
+                <a asp-action="DeleteSchedule" asp-route-doctorId="@item[0].DoctorId" asp-route-date="@item[0].Date">Delete</a>
+            </td>
+        </tr>
+}
+
+@{
+    NewScheduleModel newSchedule = new NewScheduleModel() { DoctorId = Model.Item1 };
+    newSchedule.Date = DateTime.Now;
+    if (Model.Item2.Count > 0)
+    {
+        newSchedule.Date = Model.Item2[Model.Item2.Count - 1][0].Date.AddDays(1);
+    }
+    newSchedule.WorkDayStart = new TimeSpan(8, 0, 0);
+    newSchedule.WorkDayEnd = new TimeSpan(16, 0, 0);
+    @using (Html.BeginForm("TrySchedule", "Doctor", new { doctorId = newSchedule.DoctorId }, FormMethod.Post))
+    {
+        <tr>
+            <td>
+                @Html.EditorFor(modelItem => newSchedule.Date, "{0:dd/MM/yyyy}", "Date")
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => newSchedule.WorkDayStart, null, "WorkDayStart")
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => newSchedule.WorkDayEnd, null, "WorkDayEnd")
+            </td>
+            <td>
+                <input type="submit" value="Add new day" />
+            </td>
+        </tr>
+    }
+}
+
+    </tbody>
+</table>
+<form asp-action="CopyLastWeek" asp-route-doctorId="@Model.Item1" method="post">
+    <input type="submit" value="Copy last 7 days" />
+</form>

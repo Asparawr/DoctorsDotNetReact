@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserModel> SignInManager
+@inject UserManager<UserModel> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1 class="display-4">Welcome @UserManager.GetRolesAsync(UserManager.GetUserAsync(User).Result ?? new UserModel()).Result.FirstOrDefault()</h1>
+} else
+{
+    <h1 class="display-4">Welcome</h1>
+    <br />
+    <p>You have to <a asp-controller="Login" asp-action="Index">log in</a> or <a asp-controller="Register" asp-action="Index">register </a> to continue.</p>
+}
+</div>

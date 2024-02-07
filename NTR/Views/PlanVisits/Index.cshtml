@@ -1,0 +1,17 @@
+﻿@using NTR.Models
+@model NTR.Models.SpecializationModel
+
+@{
+    ViewData["Title"] = "Plan visit";
+}
+
+<div class="text-center">
+    <br />
+    Select specialization:
+    <form asp-controller="PlanVisits" asp-action="SelectSpecialization">
+        <select asp-for="Specialization" asp-items="@(new SelectList(SpecializationsExtensions.GetSpecializations()))" >
+            <option>Please select one</option>
+        </select>
+        <input type="submit"/>
+    </form>
+</div>

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Report";
+}
+
+<h1>Report</h1>
+Select a date range to show a report.
+
+<form asp-controller="Report" asp-action="ShowReport" method="post">
+    <div class="form-group">
+        <label for="dateFrom">Start Date</label>
+        <input type="date" class="form-control" id="dateFrom" name="dateFrom" />
+    </div>
+    <div class="form-group">
+        <label for="dateTo">End Date</label>
+        <input type="date" class="form-control" id="dateTo" name="dateTo" />
+    </div>
+    <button type="submit" class="btn btn-primary">Show Report</button>
+</form>

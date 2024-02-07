@@ -1,0 +1,41 @@
+﻿@model NTR.Models.ScheduleDoctorViewModel
+   
+@{
+    ViewData["Title"] = "Planned visits";
+}
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<div>
+    @using (Html.BeginForm("SetDescription", "DoctorVisits", Model, FormMethod.Post))
+    {
+        <h1 class="display-4">Describe visit</h1>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Patient name
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PatientName)
+            </dd>
+            <dt class="col-sm-2">
+                Date
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt class="col-sm-2">
+                Description
+            </dt>
+        </dl>
+        @Html.TextAreaFor(model => model.Description, new { @id = "desc", @class = "form-control", @rows = "10", @cols = "50"})
+            
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Submit and end visit" class="btn btn-primary"/>
+        </div>
+
+    }
+</div>
