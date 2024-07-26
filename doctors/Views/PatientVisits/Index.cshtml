@@ -1,0 +1,30 @@
+﻿@model List<doctors.Models.SchedulePatientViewModel>
+   
+@{
+    ViewData["Title"] = "Planned visits";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Planned visits</h1>
+        
+    @foreach (var visit in Model)
+    {
+        <div class="row">
+            <div class="col-md-3">
+                @visit.Specialization
+            </div>
+            <div class="col-md-3">
+                @visit.DoctorName
+            </div>
+            <div class="col-md-3">
+                @visit.Date
+            </div>
+            <div class="col-md-3">
+                <form asp-action="CancelVisit" asp-route-id="@visit.Id" method="post">
+                    <input type="submit" value="Cancel" class="btn btn-primary" />
+                </form>
+            </div>
+        </div>
+        <hr />
+    }
+</div>

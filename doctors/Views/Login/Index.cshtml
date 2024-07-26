@@ -1,0 +1,43 @@
+﻿@model doctors.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Log in Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Log in</h1>
+        <form asp-action="TryLogin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            </br>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            </br>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            </br>
+            <div class="form-group">
+                    <div  class="text-center">
+                        <div class="checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" />
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+            </div>
+            </br>
+            <div class="form-group">
+                <input type="submit" value="Log in" class="btn btn-primary" />
+            </div>
+        </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

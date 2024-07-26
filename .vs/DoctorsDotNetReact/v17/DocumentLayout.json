@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Gits\\DoctorsDotNetReact\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BFC8B40D-AC42-4B8E-916B-89702D393211}|NTR\\doctors.csproj|c:\\gits\\doctorsdotnetreact\\ntr\\doctors.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{BFC8B40D-AC42-4B8E-916B-89702D393211}|NTR\\doctors.csproj|solutionrelative:ntr\\doctors.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "doctors",
+              "DocumentMoniker": "C:\\Gits\\DoctorsDotNetReact\\NTR\\doctors.csproj",
+              "RelativeDocumentMoniker": "NTR\\doctors.csproj",
+              "ToolTip": "C:\\Gits\\DoctorsDotNetReact\\NTR\\doctors.csproj",
+              "RelativeToolTip": "NTR\\doctors.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-26T21:50:35.463Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
